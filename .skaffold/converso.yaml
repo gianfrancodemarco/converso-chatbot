@@ -1,0 +1,35 @@
+apiVersion: skaffold/v2beta29
+kind: Config
+metadata:
+  name: converso
+requires:
+  - path: namespace.yaml
+  - path: secrets.yaml
+build:
+  artifacts:
+  - image: converso
+    docker:
+      dockerfile: .docker/converso.Dockerfile
+      buildArgs:
+          BUILD_TYPE: development
+    context: ../
+    sync:
+      infer:
+        - '**/*.py'
+      # manual:
+      #   - src: 'converso/**/*.py'
+      #     dest: /app/converso
+      #     strip: converso/
+deploy:
+  kubectl:
+    manifests:
+    - ../.kubernetes/converso/*.yaml
+portForward:
+  - resourceType: service
+    resourceName: converso-service
+    namespace: converso
+    port: 8000
+  - resourceType: service
+    resourceName: converso-service
+    namespace: converso
+    port: 5678

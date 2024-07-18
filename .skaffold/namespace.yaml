@@ -1,0 +1,8 @@
+apiVersion: skaffold/v2beta19
+kind: Config
+metadata:
+  name: namespace
+deploy:
+  kubectl:
+    manifests:
+      - ../.kubernetes/namespace.yaml

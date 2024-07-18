@@ -1,0 +1,22 @@
+apiVersion: skaffold/v2beta29
+kind: Config
+metadata:
+  name: converso-redis
+requires:
+  - path: namespace.yaml
+  - path: secrets.yaml
+deploy:
+  helm:
+    releases:
+      - name: redis
+        remoteChart: oci://registry-1.docker.io/bitnamicharts/redis
+        upgradeOnChange: true
+        createNamespace: true
+        namespace: converso
+        valuesFiles:
+          - ../.helm/redis/values.yaml
+portForward:
+  - resourceType: service
+    resourceName: redis-master
+    namespace: converso
+    port: 6379

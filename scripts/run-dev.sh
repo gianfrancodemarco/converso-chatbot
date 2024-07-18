@@ -1,0 +1,1 @@
+skaffold run -m=converso-redis,converso-rabbitmq && skaffold dev -m=converso,converso-telegram-bot --cleanup=false

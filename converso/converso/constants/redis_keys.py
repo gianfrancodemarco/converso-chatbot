@@ -1,0 +1,8 @@
+
+from enum import Enum
+
+
+class RedisKeys(Enum):
+    AGENT_STATE = "AGENT_STATE"
+    GOOGLE_CREDENTIALS = "GOOGLE_CREDENTIALS"
+    GOOGLE_STATE_TOKEN = "GOOGLE_STATE_TOKEN"

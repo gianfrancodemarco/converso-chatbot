@@ -1,0 +1,7 @@
+auth:
+  existingSecret: redis
+  existingSecretPasswordKey: redis-password
+master:
+  disableCommands: []	
+replica:
+  replicaCount: 0

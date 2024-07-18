@@ -1,0 +1,2 @@
+from .rabbitmq_consumer import RabbitMQConsumer, get_rabbitmq_consumer
+from .rabbitmq_producer import RabbitMQProducerDep, RabbitMQProducer, get_rabbitmq_producer

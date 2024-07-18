@@ -1,0 +1,29 @@
+apiVersion: skaffold/v2beta29
+kind: Config
+metadata:
+  name: converso-telegram-bot
+requires:
+  - path: namespace.yaml
+  - path: secrets.yaml
+build:
+  artifacts:
+  - image: converso-telegram-bot
+    docker:
+      dockerfile: .docker/converso_telegram_bot.Dockerfile
+      buildArgs:
+          BUILD_TYPE: development
+    context: ../
+    # sync:
+    #   manual:
+    #     - src: 'converso_telegram_bot/**/*.py'
+    #       dest: /app/converso_telegram_bot
+    #       strip: converso_telegram_bot
+deploy:
+  kubectl:
+    manifests:
+    - ../.kubernetes/converso_telegram_bot/*.yaml
+portForward:
+  - resourceType: service
+    resourceName: converso-telegram-bot-service
+    namespace: converso
+    port: 5679

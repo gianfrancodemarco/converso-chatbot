@@ -1,0 +1,14 @@
+*.log
+*.pdf
+*.env
+.coverage
+graph.png
+
+__pycache__
+venv
+.history
+
+.env
+
+**/secrets.yaml
+client_secret*.json

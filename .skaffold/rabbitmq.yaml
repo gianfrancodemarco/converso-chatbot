@@ -1,0 +1,26 @@
+apiVersion: skaffold/v2beta29
+kind: Config
+metadata:
+  name: converso-rabbitmq
+requires:
+  - path: namespace.yaml
+  - path: secrets.yaml
+deploy:
+  helm:
+    releases:
+      - name: rabbitmq
+        remoteChart: oci://registry-1.docker.io/bitnamicharts/rabbitmq
+        upgradeOnChange: true
+        createNamespace: true
+        namespace: converso
+        valuesFiles:
+          - ../.helm/rabbitmq/values.yaml
+portForward:
+  - resourceType: service
+    resourceName: rabbitmq
+    namespace: converso
+    port: 5672 # RabbitMQ
+  - resourceType: service
+    resourceName: rabbitmq
+    namespace: converso
+    port: 15672 # RabbitMQ Management UI

@@ -1,0 +1,18 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: 
+    - "main"
+  pull_request:
+    branches: 
+    - "main"
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build the Docker image for converso
+      run: docker build . --file .docker/converso.Dockerfile --tag converso:$(date +%s) --build-arg BUILD_TYPE=production
+    - name: Build the Docker image for converso_telegram_bot
+      run: docker build . --file .docker/converso_telegram_bot.Dockerfile --tag converso_telegram_bot:$(date +%s) --build-arg BUILD_TYPE=production

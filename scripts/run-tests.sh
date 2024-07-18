@@ -1,0 +1,1 @@
+cd converso/tests && poetry run pytest --cov=converso --cov-report=html:coverage_html unit && cd ../.. && rm -f converso/tests/graph.png
