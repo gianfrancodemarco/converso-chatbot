@@ -10,8 +10,8 @@ from langchain_openai import ChatOpenAI
 from converso.conversational_engine.form_agent import FormAgentExecutor
 from converso.conversational_engine.tools import *
 
-os.environ["OPENAI_API_KEY"] = "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"
-os.environ["LANGCHAIN_API_KEY"] = "ls__fd0fe695f6734dedbf8536715ff000ee"
+os.environ["OPENAI_API_KEY"] = ""
+os.environ["LANGCHAIN_API_KEY"] = ""
 os.environ["LANGCHAIN_ENDPOINT"] = "https://api.smith.langchain.com"
 
 tools = [

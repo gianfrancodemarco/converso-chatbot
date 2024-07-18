@@ -24,11 +24,11 @@ import os
 
 from evaluator_helpers import *
 
-os.environ["OPENAI_API_KEY"] = "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"
+os.environ["OPENAI_API_KEY"] = ""
 
 os.environ["LANGCHAIN_TRACING_V2"] = "true"
 os.environ["LANGCHAIN_ENDPOINT"] = "https://api.smith.langchain.com"
-os.environ["LANGCHAIN_API_KEY"] = "ls__f2958965106c4e02bb9d6ed6d2c11f36"
+os.environ["LANGCHAIN_API_KEY"] = ""
 os.environ["LANGCHAIN_PROJECT"] = "converso-cost-analysis3"
 
 TEST_CASES_PATH = os.path.join(
@@ -47,9 +47,10 @@ else:
 test_cases = json.loads(open(TEST_CASES_PATH).read())
 
 # Hack to resume after a crash
-#test_cases = [test_cases[240:]]
+# test_cases = [test_cases[240:]]
 
-test_cases = [test_case for test_case in test_cases if test_case["tool"] == "OnlinePurchase"]
+test_cases = [
+    test_case for test_case in test_cases if test_case["tool"] == "OnlinePurchase"]
 
 for test_case in test_cases:
     try:
@@ -61,7 +62,7 @@ for test_case in test_cases:
 
         user_model = UserLLMForEvaluation()
         system_model = SystemModelClass(
-            tools = [
+            tools=[
                 GoogleCalendarCreatorEvaluation(),
                 GoogleCalendarRetrieverEvaluation(),
                 GmailRetrieverEvaluation(),
