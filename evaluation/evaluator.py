@@ -17,7 +17,7 @@ The results of the evaluation are logged in the logs folder.
 
 The evaluation is done for 2 different types of agents:
 - the BasicAgent, which uses the structured tools from Langchain
-- the FormAgent, which uses the form tools extension from Wizard AI
+- the FormAgent, which uses the form tools extension from Converso
 """
 import json
 import os
