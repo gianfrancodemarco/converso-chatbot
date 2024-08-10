@@ -39,16 +39,6 @@ spec:
                 secretKeyRef:
                   name: converso-secret
                   key: REDIS_PASSWORD
-            # - name: LLM_URL
-            #   value: https://f22d-35-197-99-107.ngrok-free.app/
-            # - name: LLM_MODEL
-            #   #value: llama-2-7B-chat-hf
-            #   value: gpt-3.5-turbo-1106
-            - name: PIKA_URL
-              valueFrom:
-                secretKeyRef:
-                  name: converso-secret
-                  key: PIKA_URL
             - name: RABBITMQ_HOST
               value: "rabbitmq"
             - name: RABBITMQ_USER
@@ -61,11 +51,6 @@ spec:
                 secretKeyRef:
                   name: rabbitmq-custom-secret
                   key: rabbitmq-password
-            - name: SERPAPI_API_KEY
-              valueFrom:
-                secretKeyRef:
-                  name: converso-secret
-                  key: SERPAPI_API_KEY
             - name: LANGCHAIN_TRACING_V2
               value: "true"
             - name: LANGCHAIN_ENDPOINT
