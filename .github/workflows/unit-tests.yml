@@ -29,7 +29,7 @@ jobs:
         poetry install --with test
     - name: Execute unit tests with coverage [converso]
       run: |
-        cd converso/tests
+        cd converso_chatbot/tests
         poetry run pytest --cov=converso --cov-report=html:coverage_html unit
     # - name: Execute unit tests with coverage [converso-telegram-bot]
     #   run: |
@@ -39,13 +39,13 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: coverage-report
-        path: converso/tests/coverage_html
+        path: converso_chatbot/tests/coverage_html
     - name: Upload graph image
       uses: actions/upload-artifact@v2
       with:
         name: graph
-        path: converso/tests/graph.png
+        path: converso_chatbot/tests/graph.png
     - name: Cleanup
       run: |
-        rm -rf converso/tests/coverage_html
-        rm -f converso/tests/graph.png
+        rm -rf converso_chatbot/tests/coverage_html
+        rm -f converso_chatbot/tests/graph.png

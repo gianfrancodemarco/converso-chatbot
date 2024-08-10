@@ -30,7 +30,7 @@
       "host": "127.0.0.1",
       "pathMappings": [
         {
-          "localRoot": "${workspaceFolder}/converso/converso",
+          "localRoot": "${workspaceFolder}/converso_chatbot/converso_chatbot",
           "remoteRoot": "/app/converso"
         }
       ],

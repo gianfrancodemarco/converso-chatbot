@@ -3,7 +3,7 @@ from typing import Optional, Type
 from langchain.tools.base import StructuredTool
 from pydantic import BaseModel
 
-from converso.clients import SendEmailPayload
+from converso_chatbot.clients import SendEmailPayload
 
 
 class GmailSenderEvaluation(StructuredTool):

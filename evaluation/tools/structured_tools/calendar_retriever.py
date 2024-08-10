@@ -4,7 +4,7 @@ import faker
 from langchain.tools.base import StructuredTool
 from pydantic import BaseModel
 
-from converso.clients import GetCalendarEventsPayload
+from converso_chatbot.clients import GetCalendarEventsPayload
 
 fake = faker.Faker()
 
