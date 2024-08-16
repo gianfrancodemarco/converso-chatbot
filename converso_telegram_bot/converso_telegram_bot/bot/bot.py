@@ -18,7 +18,7 @@ logging.basicConfig(
 )
 
 
-class MaiAssistantTelegramBot:
+class ConversoTelegramBot:
 
     TOKEN = os.getenv("TELEGRAM_API_TOKEN")
 

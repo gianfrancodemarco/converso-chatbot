@@ -1,0 +1,64 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: converso
+  namespace: converso
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: converso
+  template:
+    metadata:
+      labels:
+        app: converso
+    spec:
+      containers:
+        - name: converso
+          image: converso
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8000
+          resources:
+            limits:
+              cpu: "1"
+              memory: "1Gi"
+            requests:
+              cpu: "0.5"
+              memory: "512Mi"
+          env:
+            - name: OPENAI_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: converso-secret
+                  key: OPENAI_API_KEY
+            - name: REDIS_HOST
+              value: "redis-master"
+            - name: REDIS_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: converso-secret
+                  key: REDIS_PASSWORD
+            - name: RABBITMQ_HOST
+              value: "rabbitmq"
+            - name: RABBITMQ_USER
+              valueFrom:
+                secretKeyRef:
+                  name: rabbitmq-custom-secret
+                  key: rabbitmq-user
+            - name: RABBITMQ_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: rabbitmq-custom-secret
+                  key: rabbitmq-password
+            - name: LANGCHAIN_TRACING_V2
+              value: "true"
+            - name: LANGCHAIN_ENDPOINT
+              value: "https://api.smith.langchain.com"
+            - name: LANGCHAIN_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: converso-secret
+                  key: LANGCHAIN_API_KEY
+            - name: LANGCHAIN_PROJECT
+              value: "converso"

@@ -3,7 +3,7 @@ from typing import Dict, Union
 
 import faker
 
-from converso.conversational_engine.tools import GmailRetriever
+from converso_chatbot.conversational_engine.tools import GmailRetriever
 
 fake = faker.Faker()
 

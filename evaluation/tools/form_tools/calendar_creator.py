@@ -4,7 +4,7 @@ from typing import Dict, Optional, Union
 
 import faker
 
-from converso.conversational_engine.tools import GoogleCalendarCreator
+from converso_chatbot.conversational_engine.tools import GoogleCalendarCreator
 
 fake = faker.Faker()
 

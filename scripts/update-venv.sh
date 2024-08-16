@@ -1,1 +1,1 @@
-../venv/bin/python -m pip install -r converso/requirements.txt
+../venv/bin/python -m pip install -r converso_chatbot/requirements.txt
