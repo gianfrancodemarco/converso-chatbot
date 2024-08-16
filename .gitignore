@@ -10,5 +10,5 @@ venv
 
 .env
 
-**/secrets.yaml
-client_secret*.json
+.kubernetes/**/*secrets.yaml
+client_secret.json

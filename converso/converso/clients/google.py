@@ -136,8 +136,8 @@ class GoogleClient:
             event_end = event['end'].get('dateTime', event['end'].get('date'))
             event_summary = event.get('summary')
             event_link = event['htmlLink']
-            event_string = f"{
-                idx+1}. {event_start} - <a href=\"{event_link}\">{event_summary}</a>\n"
+            event_string = f"""{
+                idx+1}. {event_start} - <a href=\"{event_link}\">{event_summary}</a>\n"""
             events_string += event_string
 
         if not events_string:

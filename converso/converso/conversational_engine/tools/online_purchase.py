@@ -86,8 +86,8 @@ class OnlinePurchasePayload(BaseModel):
     def validate_province(cls, model: "OnlinePurchasePayload"):
         if model.region and model.province:
             if model.province not in model.allowed_provinces_:
-                raise ValueError(f"Province must be one of {
-                                 model.allowed_provinces_}")
+                raise ValueError(f"""Province must be one of {
+                                 model.allowed_provinces_}""")
         return model
 
 
