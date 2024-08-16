@@ -15,8 +15,6 @@ done
 
 read -p "Enter your LangChain API Key [default: <your-langchain-api-key>]: " LANGCHAIN_API_KEY
 LANGCHAIN_API_KEY=${LANGCHAIN_API_KEY:-<your-langchain-api-key>}
-read -p "Enter your RabbitMQ username [default: user]: " RABBITMQ_USER
-RABBITMQ_USER=${RABBITMQ_USER:-user}
 read -p "Enter your RabbitMQ password [default: password]: " RABBITMQ_PASSWORD
 RABBITMQ_PASSWORD=${RABBITMQ_PASSWORD:-password}
 read -p "Enter your RabbitMQ Erlang Cookie [default: password]: " RABBITMQ_ERLANG_COOKIE
@@ -44,7 +42,6 @@ cp $CHATBOT_SECRETS_SRC $CHATBOT_SECRETS_DST
 sed -i "s/<your-token>/$TELEGRAM_API_TOKEN/" $CHATBOT_SECRETS_DST
 sed -i "s/<your-openai-api-key>/$OPENAI_API_KEY/" $CHATBOT_SECRETS_DST
 sed -i "s/<your-langchain-api-key>/$LANGCHAIN_API_KEY/" $CHATBOT_SECRETS_DST
-sed -i "s/<rabbitmq-user>/$RABBITMQ_USER/" $CHATBOT_SECRETS_DST
 sed -i "s/<rabbitmq-password>/$RABBITMQ_PASSWORD/" $CHATBOT_SECRETS_DST
 sed -i "s/<redis-password>/$REDIS_PASSWORD/" $CHATBOT_SECRETS_DST
 
@@ -53,13 +50,11 @@ echo "Setting up secrets for Converso Telegram Bot..."
 cp $TELEGRAM_SECRETS_SRC $TELEGRAM_SECRETS_DST
 sed -i "s/<your-token>/$TELEGRAM_API_TOKEN/" $TELEGRAM_SECRETS_DST
 sed -i "s/<your-openai-api-key>/$OPENAI_API_KEY/" $TELEGRAM_SECRETS_DST
-sed -i "s/<rabbitmq-user>/$RABBITMQ_USER/" $TELEGRAM_SECRETS_DST
 sed -i "s/<rabbitmq-password>/$RABBITMQ_PASSWORD/" $TELEGRAM_SECRETS_DST
 
 # Step 3: Create RabbitMQ secrets file
 echo "Creating RabbitMQ secrets file..."
 cp $RABBITMQ_SECRETS_SRC $RABBITMQ_SECRETS_DST
-sed -i "s/<rabbitmq-user>/$RABBITMQ_USER/" $RABBITMQ_SECRETS_DST
 sed -i "s/<rabbitmq-password>/$RABBITMQ_PASSWORD/" $RABBITMQ_SECRETS_DST
 sed -i "s/<rabbitmq-erlang-cookie>/$RABBITMQ_ERLANG_COOKIE/" $RABBITMQ_SECRETS_DST
 

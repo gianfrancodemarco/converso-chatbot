@@ -3,7 +3,7 @@ import os
 RABBITMQ_HOST = os.environ.get('RABBITMQ_HOST')
 RABBITMQ_PORT = os.environ.get('RABBITMQ_PORT', 5672)
 RABBITMQ_PASSWORD = os.environ.get('RABBITMQ_PASSWORD')
-RABBITMQ_USER = os.environ.get('RABBITMQ_USER')
+RABBITMQ_USER = 'user'
 
 # Convert port to int if it is a string (Due to the fact that Kubernetes
 # automatically populates some env variables from the services)
