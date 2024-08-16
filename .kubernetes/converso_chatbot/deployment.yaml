@@ -41,11 +41,6 @@ spec:
                   key: REDIS_PASSWORD
             - name: RABBITMQ_HOST
               value: "rabbitmq"
-            - name: RABBITMQ_USER
-              valueFrom:
-                secretKeyRef:
-                  name: rabbitmq-custom-secret
-                  key: rabbitmq-user
             - name: RABBITMQ_PASSWORD
               valueFrom:
                 secretKeyRef:
