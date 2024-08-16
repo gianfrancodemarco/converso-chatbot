@@ -46,7 +46,6 @@ sed -i "s/<your-openai-api-key>/$OPENAI_API_KEY/" $CHATBOT_SECRETS_DST
 sed -i "s/<your-langchain-api-key>/$LANGCHAIN_API_KEY/" $CHATBOT_SECRETS_DST
 sed -i "s/<rabbitmq-user>/$RABBITMQ_USER/" $CHATBOT_SECRETS_DST
 sed -i "s/<rabbitmq-password>/$RABBITMQ_PASSWORD/" $CHATBOT_SECRETS_DST
-sed -i "s/<rabbitmq-erlang-cookie>/$RABBITMQ_ERLANG_COOKIE/" $CHATBOT_SECRETS_DST
 sed -i "s/<redis-password>/$REDIS_PASSWORD/" $CHATBOT_SECRETS_DST
 
 # Step 2: Copy the Telegram bot secrets file and adjust the values
@@ -56,7 +55,6 @@ sed -i "s/<your-token>/$TELEGRAM_API_TOKEN/" $TELEGRAM_SECRETS_DST
 sed -i "s/<your-openai-api-key>/$OPENAI_API_KEY/" $TELEGRAM_SECRETS_DST
 sed -i "s/<rabbitmq-user>/$RABBITMQ_USER/" $TELEGRAM_SECRETS_DST
 sed -i "s/<rabbitmq-password>/$RABBITMQ_PASSWORD/" $TELEGRAM_SECRETS_DST
-sed -i "s/<rabbitmq-erlang-cookie>/$RABBITMQ_ERLANG_COOKIE/" $TELEGRAM_SECRETS_DST
 
 # Step 3: Create RabbitMQ secrets file
 echo "Creating RabbitMQ secrets file..."
