@@ -27,7 +27,7 @@ FROM base AS build_development
 
 # Doing it manually because skaffold debug is not working
 
-ENTRYPOINT ["python", "-u", "-m", "debugpy", "--listen", "0.0.0.0:5678", "converso_telegram_bot/main.py"]
+ENTRYPOINT ["python", "-u", "-m", "debugpy", "--listen", "0.0.0.0:5679", "converso_telegram_bot/main.py"]
 
 FROM base AS build_testing
 ENTRYPOINT ["python", "-m", "main.py"]
