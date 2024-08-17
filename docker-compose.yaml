@@ -8,7 +8,7 @@ services:
     ports:
       - "5679:5679"
     env_file:
-      - fileName: .env
+      - .env
   converso_chatbot:
     build:
       dockerfile: .docker/converso_chatbot.Dockerfile
@@ -19,13 +19,13 @@ services:
       - "8000:8000"
       - "5678:5678"
     env_file:
-      - fileName: .env
+      - .env
   redis:
     image: bitnami/redis:latest
     ports:
       - "6379:6379"
     env_file:
-      - fileName: .env
+      - .env
     volumes:
       - redis_data:/bitnami/redis/data
   rabbitmq:
@@ -34,7 +34,7 @@ services:
       - "5672:5672"   # RabbitMQ port
       - "15672:15672" # RabbitMQ Management UI
     env_file:
-      - fileName: .env
+      - .env
     volumes:
       - rabbitmq_data:/bitnami/rabbitmq
 
