@@ -6,7 +6,7 @@ from telegram.constants import ChatAction
 from telegram.ext import ContextTypes
 
 from converso_telegram_bot.clients import (
-    MAIAssistantClient, get_rabbitmq_producer)
+    ConversoChatbotClient, get_rabbitmq_producer)
 from converso_telegram_bot.constants import MessageQueues, MessageType
 
 from openai import OpenAI
@@ -23,7 +23,7 @@ class Handler:
         bot: Bot,
     ) -> None:
         self.bot = bot
-        self.converso_client = MAIAssistantClient()
+        self.converso_client = ConversoChatbotClient()
         self.rabbitmq_producer = get_rabbitmq_producer()
         self.openai_client = OpenAI()
 
