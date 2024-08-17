@@ -1,0 +1,45 @@
+services:
+  converso_telegram_bot:
+    build:
+      dockerfile: .docker/converso_telegram_bot.Dockerfile
+      args:
+        BUILD_TYPE: development
+    image: converso-telegram-bot
+    ports:
+      - "5679:5679"
+    env_file:
+      - .env
+  converso_chatbot:
+    build:
+      dockerfile: .docker/converso_chatbot.Dockerfile
+      args:
+        BUILD_TYPE: development
+    image: converso_chatbot
+    ports:
+      - "8000:8000"
+      - "5678:5678"
+    env_file:
+      - .env
+  redis:
+    image: bitnami/redis:latest
+    ports:
+      - "6379:6379"
+    env_file:
+      - .env
+    volumes:
+      - redis_data:/bitnami/redis/data
+  rabbitmq:
+    image: bitnami/rabbitmq:latest
+    ports:
+      - "5672:5672"   # RabbitMQ port
+      - "15672:15672" # RabbitMQ Management UI
+    env_file:
+      - .env
+    volumes:
+      - rabbitmq_data:/bitnami/rabbitmq
+
+volumes:
+  redis_data:
+    driver: local
+  rabbitmq_data:
+    driver: local

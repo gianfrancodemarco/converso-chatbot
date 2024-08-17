@@ -6,7 +6,7 @@
   "configurations": [
     {
       "name": "Python: Debug Tests",
-      "type": "python",
+      "type": "debugpy",
       "request": "launch",
       "program": "${file}",
       "purpose": ["debug-test"],
@@ -15,7 +15,7 @@
     },    
     {
       "name": "Python: Current File",
-      "type": "python",
+      "type": "debugpy",
       "request": "launch",
       "program": "${file}",
       "python": "${command:python.interpreterPath}",
@@ -24,14 +24,16 @@
     },
     {
       "name": "Debug FastAPI",
-      "type": "python",
+      "type": "debugpy",
       "request": "attach",
-      "port": 5678,
-      "host": "127.0.0.1",
+      "connect": {
+        "port": 5678,
+        "host": "127.0.0.1",
+      },
       "pathMappings": [
         {
           "localRoot": "${workspaceFolder}/converso_chatbot/converso_chatbot",
-          "remoteRoot": "/app/converso"
+          "remoteRoot": "/app/converso_chatbot"
         }
       ],
       "justMyCode": false,
@@ -39,18 +41,20 @@
     },
     {
       "name": "Debug Telegram Bot",
-      "type": "python",
+      "type": "debugpy",
       "request": "attach",
-      "port": 5679,
-      "host": "127.0.0.1",
+      "connect": {
+        "port": 5679,
+        "host": "127.0.0.1",
+      },
       "pathMappings": [
         {
-          "localRoot": "${workspaceFolder}/converso_telegram_bot",
-      "remoteRoot": "/app/converso_telegram_bot"
+          "localRoot": "${workspaceFolder}/converso_telegram_bot/converso_telegram_bot",
+          "remoteRoot": "/app/converso_telegram_bot"
         },
         {
-          "localRoot": "${workspaceFolder}/converso_telegram_bot/main.py",
-          "remoteRoot": "/app/main.py"
+          "localRoot": "${workspaceFolder}/converso_telegram_bot/converso_telegram_bot/main.py",
+          "remoteRoot": "/app/converso_telegram_bot/main.py"
         }
       ],
         "justMyCode": false

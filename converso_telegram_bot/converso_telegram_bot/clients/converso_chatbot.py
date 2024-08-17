@@ -3,10 +3,10 @@ import os
 import requests
 
 
-class MAIAssistantClient:
+class ConversoChatbotClient:
 
     def __init__(self) -> None:
-        self.HOST = os.environ.get('converso_URL', 'localhost:8000')
+        self.HOST = os.environ.get('CONVERSO_URL', 'localhost:8000')
         self.REST_URL = f"http://{self.HOST}"
 
     def chat(

@@ -8,7 +8,7 @@ from converso_telegram_bot.clients import (
 from converso_telegram_bot.constants import MessageQueues
 
 from converso_telegram_bot.bot.bot import ConversoTelegramBot
-from converso_telegram_bot.consumer import ConversoConsumer
+from converso_telegram_bot.consumer import ConversoProcessor
 sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..'))
 
 
@@ -32,10 +32,10 @@ if __name__ == "__main__":
     bot = ConversoTelegramBot()
 
     # Create a consumer for RabbitMQ that handles update from MAIAssistant
-    converso_consumer = ConversoConsumer(bot=bot.telegram_bot)
+    converso_processor = ConversoProcessor(bot=bot.telegram_bot)
     rabbitmq_consumer = get_rabbitmq_consumer(
-        queue_name=MessageQueues.converso_OUT.value,
-        on_message_callback=converso_consumer.on_message_callback
+        queue_name=MessageQueues.CONVERSO_OUT.value,
+        on_message_callback=converso_processor.on_message_callback
     )
 
     # Start the RabbitMQ consumer

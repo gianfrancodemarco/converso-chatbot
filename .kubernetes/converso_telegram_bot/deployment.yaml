@@ -18,7 +18,7 @@ spec:
           image: converso-telegram-bot
           imagePullPolicy: Never
           env:
-            - name: converso_URL
+            - name: CONVERSO_URL
               value: converso-service:8000
             - name: TELEGRAM_API_TOKEN
               valueFrom:

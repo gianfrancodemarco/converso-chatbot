@@ -35,6 +35,8 @@ RABBITMQ_SECRETS_DST=".kubernetes/rabbitmq/secrets.yaml"
 REDIS_SECRETS_SRC=".kubernetes/redis/secrets-example.yaml"
 REDIS_SECRETS_DST=".kubernetes/redis/secrets.yaml"
 DOCKERFILE=".docker/converso_chatbot.Dockerfile"
+ENV_EXAMPLE=".env.example"
+ENV_FILE=".env"
 
 # Step 1: Copy the chatbot secrets file and adjust the values
 echo "Setting up secrets for Converso Chatbot..."
@@ -72,5 +74,14 @@ else
   echo "Ensuring 'COPY client_secret.json /' line is commented in Dockerfile..."
   sed -i 's/^COPY client_secret.json /#COPY client_secret.json /' $DOCKERFILE
 fi
+
+# Step 6: Copy .env.example to .env and adjust the values
+echo "Setting up .env file..."
+cp $ENV_EXAMPLE $ENV_FILE
+sed -i "s/<your-token>/$TELEGRAM_API_TOKEN/" $ENV_FILE
+sed -i "s/<your-openai-api-key>/$OPENAI_API_KEY/" $ENV_FILE
+sed -i "s/<your-langchain-api-key>/$LANGCHAIN_API_KEY/" $ENV_FILE
+sed -i "s/<redis-password>/$REDIS_PASSWORD/" $ENV_FILE
+sed -i "s/<rabbitmq-password>/$RABBITMQ_PASSWORD/" $ENV_FILE
 
 echo "Setup completed successfully!"
