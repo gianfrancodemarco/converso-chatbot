@@ -3,8 +3,18 @@ Execution via Conversational Forms.
 
 The standalone python package is available at https://pypi.org/project/converso/ (source code: https://github.com/g   ianfrancodemarco/converso)
 
-## Setup the dev environment
+- [Setup the dev environment](#setup-the-dev-environment)
+- [How to run](#how-to-run)
+  - [Docker Compose](#docker-compose)
+    - [Prerequisites](#prerequisites)
+    - [Run the project](#run-the-project)
+  - [Kubernetes + Helm + Kind + Skaffold](#kubernetes--helm--kind--skaffold)
+    - [Prerequisites](#prerequisites-1)
+    - [Run the project](#run-the-project-1)
+- [Credits](#credits)
 
+
+## Setup the dev environment
 
 To set up the development environment for the Converso project, run the setup script.
 
@@ -24,6 +34,19 @@ The script will prompt you for various configuration details and adjust your env
 
 ## How to run
 
+### Docker Compose 
+
+#### Prerequisites
+
+- [`docker`](https://www.docker.com/) ~v27.1.1
+
+#### Run the project
+
+```bash
+docker compose --build up
+```
+
+
 ### Kubernetes + Helm + Kind + Skaffold
 
 #### Prerequisites
@@ -38,8 +61,9 @@ Ensure you have the following dependencies installed (versions listed are those 
 
 #### Run the project
 
-### Docker Compose 
-- [`docker`](https://www.docker.com/) ~v27.1.1
+```bash
+skaffold dev
+```
 
 ## Credits
 
