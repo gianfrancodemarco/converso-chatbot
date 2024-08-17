@@ -2,5 +2,5 @@ from enum import Enum
 
 
 class MessageQueues(Enum):
-    converso_IN = "converso_in"
-    converso_OUT = "converso_out"
+    CONVERSO_IN = "converso_in"
+    CONVERSO_OUT = "converso_out"

@@ -104,7 +104,7 @@ class Handler:
         )
 
         self.rabbitmq_producer.publish(
-            queue=MessageQueues.converso_IN.value,
+            queue=MessageQueues.CONVERSO_IN.value,
             message=json.dumps({
                 "type": MessageType.TEXT.value,
                 "chat_id": chat_id,
